@@ -1,0 +1,2 @@
+- This lab work guides you through the process of working with make utility.
+- All the related files and other information can be found at http://mrbook.org/blog/tutorials/make/

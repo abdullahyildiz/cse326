@@ -1,0 +1,22 @@
+# The variable CC set the compiler to use
+CC=gcc
+# CFLAGS will be the options that will be passed to the compiler
+CFLAGS=-c -Wall
+
+all: hello
+
+hello: main.o factorial.o hello.o
+	$(CC) main.o factorial.o hello.o -o hello
+
+main.o: main.c
+	$(CC) $(CFLAGS) main.c
+
+factorial.o: factorial.c
+	$(CC) $(CFLAGS) factorial.c
+
+hello.o: hello.c
+	$(CC) $(CFLAGS) hello.c
+
+clean:
+	rm -rf *o hello
+

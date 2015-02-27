@@ -16,5 +16,8 @@ echo in > direction
 
 cat value
 
+# change directory to /sys/class/gpio
+cd /sys/class/gpio
+
 # unexport pin 45 from userspace
-echo 45 > /sys/class/gpio/unexport
+echo 45 > unexport

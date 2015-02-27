@@ -11,5 +11,8 @@ cd gpio44
 # turn off the LED
 echo 0 > value
 
+# change directory to /sys/class/gpio
+cd /sys/class/gpio
+
 # unexport pin 44 from userspace
-echo 44 > /sys/class/gpio/unexport
+echo 44 > unexport

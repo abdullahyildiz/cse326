@@ -87,11 +87,10 @@ LED::~LED(){
 
 int main(int argc, char* argv[]){
    if(argc!=2){
-	cout << "Usage is makeLEDs <command>" << endl;
+	cout << "Usage is <program_file> <command>" << endl;
         cout << "   command is one of: on, off, flash or status" << endl;
-	cout << " e.g. makeLEDs flash" << endl;
    }
-   cout << "Starting the makeLEDs program" << endl;
+   cout << "Starting the program" << endl;
    string cmd(argv[1]);
    LED leds[4] = { LED(0), LED(1), LED(2), LED(3) };
    for(int i=0; i<=3; i++){
@@ -101,6 +100,6 @@ int main(int argc, char* argv[]){
       else if(cmd=="status")leds[i].outputState();
       else{ cout << "Invalid command!" << endl; }
    }
-   cout << "Finished the makeLEDs program" << endl;
+   cout << "Finished the program" << endl;
    return 0;
 }

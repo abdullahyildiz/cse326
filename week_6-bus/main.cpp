@@ -13,10 +13,7 @@ using namespace std;
 using namespace exploringBB;
 
 int main(int argc, char *argv[]){
-   if(argc!=2){
-      cout << "Usage:  accClient server_name" << endl;
-      return 2;
-   }
+   
    cout << "Starting EBB ADXL345 Client Example" << endl;
    I2CDevice i2c(1,0x53);                       // the I2C device P9_19 P9_20
    ADXL345 sensor(&i2c);                        // pass device to ADXL const.

@@ -25,7 +25,7 @@
 #ifndef ADXL345_H_
 #define ADXL345_H_
 //#include"../bus/I2CDevice.h"
-#include "../bus/BusDevice.h"
+#include "BusDevice.h"
 
 /// The ADXL345 has 0x40 registers (0x01 to 0x1C are reserved and should not be accessed)
 #define BUFFER_SIZE 0x40

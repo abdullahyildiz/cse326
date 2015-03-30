@@ -29,9 +29,9 @@ int main(){
    tcflush(file, TCIFLUSH);             //discard file information not transmitted
    tcsetattr(file, TCSANOW, &options);  //changes occur immmediately
 
-   unsigned char transmit[18] = "UART test on BeagleBone Black";  //the string to send
+   unsigned char transmit[30] = "UART test on BeagleBone Black";  //the string to send
 
-   if ((count = write(file, &transmit,18))<0){        //send the string
+   if ((count = write(file, &transmit,30))<0){        //send the string
       perror("Failed to write to the output\n");
       return -1;
    }
@@ -50,4 +50,3 @@ int main(){
    close(file);
    return 0;
 }
-

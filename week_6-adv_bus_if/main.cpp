@@ -5,32 +5,17 @@
 * directory for copyright and GNU GPLv3 license information.            */
 
 #include <iostream>
-#include "I2CDevice.h"                    
-#include "ADXL345.h"                     
-#include "sstream"                              // to format the string
-#include <unistd.h>                             // for the usleep()
+#include <sstream>
+#include "SPIDevice.h"
+#include "ADXL345.h"
 using namespace std;
 using namespace exploringBB;
 
-int main(int argc, char *argv[]){
-   
-   cout << "Starting EBB ADXL345 Client Example" << endl;
-   I2CDevice i2c(1,0x53);                       // the I2C device P9_19 P9_20
-   ADXL345 sensor(&i2c);                        // pass device to ADXL const.
-   sensor.setResolution(ADXL345::NORMAL);       // regular resolution
-   sensor.setRange(ADXL345::PLUSMINUS_4_G);     // regular +/- 2G
-
-   for(int i=0; i<1000; i++){                   // going to send 1000 samples
-      stringstream ss;                          // use a stringstream for msg.
-      sensor.readSensorState();                 // update the sensor state
-      float pitch = sensor.getPitch();          // get pitch and roll
-      float roll = sensor.getRoll();            // structure as XML string
-      ss << "<sample><acc><pitch>" << pitch << "</pitch>";
-      ss << "<roll>" << roll << "</roll></acc></sample>      ";
-      cout << ss.str() << '\xd';                // print to output on one line
-      cout.flush();                             // flush to update the display
-      usleep(50000);                            //50ms between samples
-   }
-
-   return 0;
+int main(){
+   cout << "Starting EBB ADXL345 SPI Test" << endl;
+   SPIDevice *busDevice = new SPIDevice(1,0); // Using second SPI bus (both loaded)
+   busDevice->setSpeed(1000000);              // Have access to SPI Device object
+   ADXL345 acc(busDevice);
+   acc.displayPitchAndRoll(100);
+   cout << "End of EBB ADXL345 SPI Test" << endl;
 }

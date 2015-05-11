@@ -1,4 +1,4 @@
-Run script as
+Run the script as
 
 ```shell
 chmod +x share_connection.sh

@@ -70,7 +70,7 @@ int main(){
       perror("Failed to send SPI message");
       return -1;
    }
-   printf("Return value: %d\n",receive[1]);
+   printf("Return value: 0x%.2x\n",receive[1]);
    close(file);
    return 0;
 }

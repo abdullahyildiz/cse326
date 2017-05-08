@@ -15,7 +15,7 @@ using namespace exploringBB;
 int main(int argc, char *argv[]){
    ostringstream head, data;
    cout << "Starting ThingSpeak Example" << endl;
-   SocketClient sc("thingspeak.com",80);
+   SocketClient sc("api.thingspeak.com",80);
    data << "field1=" << argv[1] << endl;
    sc.connectToServer();
    head << "POST /update HTTP/1.1\n"
